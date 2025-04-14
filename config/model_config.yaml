@@ -1,0 +1,58 @@
+# Model configurations for spill detection
+
+primary_model:
+  model_type: yolov8m.pt
+  image_size: 640
+  batch_size: 8
+  epochs: 100
+  optimizer: Adam
+  patience: 20
+  hyperparameters:
+    lr0: 0.01             # Initial learning rate
+    lrf: 0.01             # Final learning rate factor
+    momentum: 0.937       # SGD momentum
+    weight_decay: 0.0005  # Weight decay
+    mosaic: 1.0           # Mosaic augmentation
+    mixup: 0.2            # Image mixup probability
+    copy_paste: 0.1       # Copy-paste augmentation
+    label_smoothing: 0.1  # Label smoothing
+    box: 7.5              # Bounding box loss gain
+    cls: 0.5              # Classification loss gain
+    dfl: 1.5              # Distribution focal loss
+    degrees: 10.0         # Rotation range
+    translate: 0.1        # Translation factor
+    scale: 0.5            # Scaling factor
+    shear: 5.0            # Shear angle
+    perspective: 0.0      # Perspective transform
+    flipud: 0.0           # Vertical flip
+    fliplr: 0.5           # Horizontal flip
+    hsv_h: 0.015          # Hue variation
+    hsv_s: 0.7            # Saturation variation
+    hsv_v: 0.4            # Value variation
+
+lightweight_model:
+  model_type: yolov8n.pt
+  image_size: 416
+  batch_size: 16
+  epochs: 20
+  optimizer: Adam
+  patience: 10
+  hyperparameters:
+    lr0: 0.001            # Initial learning rate (lower for fine-tuning)
+    lrf: 0.01             # Final learning rate factor
+    momentum: 0.937       # SGD momentum
+    weight_decay: 0.0005  # Weight decay
+    mosaic: 0.5           # Reduced mosaic augmentation
+    mixup: 0.0            # No mixup for faster training
+    copy_paste: 0.0       # No copy-paste for faster training
+    label_smoothing: 0.0  # No label smoothing for simpler model
+    degrees: 5.0          # Reduced rotation range
+    translate: 0.1        # Translation factor
+    scale: 0.3            # Reduced scaling factor
+    shear: 0.0            # No shear for simpler augmentation
+    perspective: 0.0      # No perspective transform
+    flipud: 0.0           # No vertical flip
+    fliplr: 0.5           # Horizontal flip
+    hsv_h: 0.01           # Minimal hue variation
+    hsv_s: 0.3            # Reduced saturation variation
+    hsv_v: 0.2            # Reduced brightness variation 

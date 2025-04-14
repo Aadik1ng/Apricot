@@ -1,0 +1,6 @@
+names:
+- Spill
+nc: 1
+test: D:\Apricot\datasets\test
+train: D:\Apricot\datasets\train
+val: D:\Apricot\datasets\valid
